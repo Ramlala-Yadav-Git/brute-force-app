@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Login.module.css";
 import GoogleLogin from "react-google-login";
 import { Navbar } from "../LandingPage/navbar/navabar";
+import { Footer } from "../LandingPage/Footer/Footer"
 
 const Login = () => {
   fetch("https://geolocation-db.com/json/8dd79c70-0801-11ec-a29f-e381a788c2c0")
@@ -64,6 +65,10 @@ const Login = () => {
           </p>
         </div>
       </div>
+      <div style={{ margin: "50px" }}>
+
+      </div>
+      <Footer />
     </>
   );
 };

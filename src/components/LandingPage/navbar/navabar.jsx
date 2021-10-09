@@ -19,7 +19,7 @@ export const Navbar = () => {
             </div>
             <div className="endContent">
                 <div className="navInput">
-                    <input type="text" name="search" id="search" placeholder="Search Books By author here.." />
+                    <input type="text" name="search" id="search" placeholder="Search Books By author.." />
                 </div>
                 <div className="navLinks">
                     <h5>Home</h5>
@@ -53,7 +53,8 @@ flex-direction:row;
 justify-content:space-between;
 align-items:center;
 background:#FFFFFF;
-padding:10px;
+padding-left:10px;
+padding-right:10px;
 color:##232F3E;
 border-bottom:1px solid #7b63bd21;
 
@@ -97,14 +98,24 @@ border-bottom:1px solid #7b63bd21;
     gap:20px;
     margin-right:50px;
 }
+& .navInput{
+     display:flex;
+     flex-direction:column;
+    justify-content:flex-end;
+    /* align-items:center; */
+    
 
+    
+}
 & > .endContent .navInput input{
     border:none;
-    padding:5px;
+    margin-top:20px;
+    /* padding:5px; */
     border-radius:3px;
-    font-size:15px;
+    font-size:14px;
     outline:none;
     border:1px solid #ecaa2fb2;
+    font-weight:normal;
 }
 & > .endContent  .navLinks i{
     color:#232F3E;
