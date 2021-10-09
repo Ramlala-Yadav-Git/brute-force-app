@@ -2,11 +2,15 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import Styled from "styled-components"
 import { useHistory } from "react-router"
+import { useSelector } from "react-redux";
+
 
 export const Navbar = () => {
 
     const [input, setInput] = useState("")
     const history = useHistory("")
+    const user = useSelector((state) => state.auth.user.user);
+
 
     const handleChange = (e) => {
         if (e.charCode === 13) {
@@ -18,6 +22,8 @@ export const Navbar = () => {
 
         // console.log(e.charCode)
     }
+    const sample = "https://thumbs.dreamstime.com/b/faceless-businessman-avatar-man-suit-blue-tie-human-profile-userpic-face-features-web-picture-gentlemen-85824471.jpg"
+    // console.log(user)
 
 
     return <>
@@ -58,7 +64,7 @@ export const Navbar = () => {
                     </Link> */}
                 </div>
                 <div className="userPic">
-                    <img src="https://thumbs.dreamstime.com/b/faceless-businessman-avatar-man-suit-blue-tie-human-profile-userpic-face-features-web-picture-gentlemen-85824471.jpg" alt="pic" />
+                    <img src={user.imageUrl ? user.imageUrl : sample} alt="pic" />
                 </div>
 
             </div>

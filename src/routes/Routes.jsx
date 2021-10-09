@@ -27,9 +27,7 @@ export function Routes() {
         <Route path="/book/:id">
           <BookPage />
         </Route>
-        <Route path="/search">
-          <Search />
-        </Route>
+
         <Route path="/search/:query">
           <Search />
         </Route>

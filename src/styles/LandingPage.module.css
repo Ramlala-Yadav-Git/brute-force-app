@@ -24,7 +24,9 @@
 	margin: 3px;
 }
 .book_card_cont_right > img {
-	height: 95%;
+	height: 100px;
+	width: 100px;
+	border-radius: 10px;
 }
 .book_card_cont_left_btn {
 	margin-top: 30px;
