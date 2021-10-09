@@ -5,6 +5,15 @@ import axios from "axios";
 
 const CreateBook = () => {
   const [pinlocation, setpinlocation] = useState({ find: false });
+  const [title, setTitle] = useState("");
+  const [type, setType] = useState("");
+  const [file, setFile] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setTopic] = useState(0);
+  const [condition, setCondition] = useState("");
+  const [location, setLocation] = useState("");
+  const [author, setAuthor] = useState("");
+
 
   const getDetails = (pin) => {
     let location = {};
@@ -54,20 +63,22 @@ const CreateBook = () => {
           <div>
             <label htmlFor="title">Book Title</label>
             <input
-              onChange={handleChange}
+              onChange={(e) => { setTitle(e.target.value) }}
               type="text"
               name="title"
               id="title"
+              value={title}
               placeholder="Enter Title Of The Book"
             />
           </div>
           <div>
             <label htmlFor="author">Author Name</label>
             <input
-              onChange={handleChange}
+              onChange={(e) => { setAuthor(e.target.value) }}
               type="text"
               name="author"
               id="author"
+              value={author}
               placeholder="Enter Author Name Of The Book"
             />
           </div>
@@ -211,3 +222,10 @@ const CreateBook = () => {
 };
 
 export default CreateBook;
+// const data = new FormData()
+//     data.append("image", file)
+//     data.append("text", body);
+//     data.append("title", title);
+//     data.append("description", description);
+//     data.append("author", user._id);
+//     data.append("topic", topic);

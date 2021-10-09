@@ -15,6 +15,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-elastic-carousel": "^0.11.5",
+    "react-geocode": "^0.2.3",
     "react-google-button": "^0.7.2",
     "react-google-login": "^5.2.2",
     "react-html-parser": "^2.0.2",
