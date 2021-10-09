@@ -14,7 +14,7 @@ export const Footer = () => {
             </div>
             <div className="endContent">
                 <div className="footerDoc">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, official.</p>
+                    <p>@oldbooks.com</p>
                 </div>
                 <div className="links">
                     <i className="fa fa-facebook"></i>
@@ -40,10 +40,10 @@ display:flex;
 flex-direction:row;
 justify-content:space-between;
 align-items:center;
-background:#142F44;
+background:#090022;
 padding:10px;
- position:absolute; 
-bottom:0px; 
+ /* position:absolute;  */
+/* bottom:0px;  */
 width:100%;
 padding-left:10px;
 
@@ -69,7 +69,7 @@ padding-left:10px;
     color:white;
 }
 & > .endContent  .links {
-    color:white;
+    color:#f09e06e4;
     cursor:pointer;
     font-size:18px;
 }
