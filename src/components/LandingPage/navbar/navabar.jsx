@@ -22,10 +22,16 @@ export const Navbar = () => {
                     <input type="text" name="search" id="search" placeholder="Search Books By author.." />
                 </div>
                 <div className="navLinks">
-                    <h5>Home</h5>
+                    <Link to="/list" className="link">
+
+                        <h5>All Books</h5>
+                    </Link>
                 </div>
-                <div className="navLinks">
-                    <h5>About</h5>
+                <div className="navLinks" >
+                    <Link to="create" className="link">
+                        <h5>Sell</h5>
+                    </Link>
+
                 </div>
                 <div className="navLinks">
                     {/* <Link to="/chat">
@@ -81,7 +87,7 @@ border-bottom:1px solid #7b63bd21;
     text-decoration:none;
 }
 & >.navLogo h2{
-    color:#232F3E;
+    color:#465261;
     border-radius:5px;
 
 }
@@ -123,9 +129,10 @@ border-bottom:1px solid #7b63bd21;
     font-size:22px;
 }
 & > .endContent  .navLinks h5{
-    color:#232F3E;
+    color:#444b53;
     cursor:pointer;
     font-size:18px;
+    font-weight:700;
 }
 & > .endContent .userPic img{
    width:50px;

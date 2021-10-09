@@ -3,21 +3,35 @@ import styles from "./Login.module.css";
 import GoogleLogin from "react-google-login";
 import { Navbar } from "../LandingPage/navbar/navabar";
 import { Footer } from "../LandingPage/Footer/Footer"
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../../redux/auth/actions";
+import { useHistory } from "react-router";
 
 const Login = () => {
+  const [city, setCity] = React.useState("");
+  const dispatch = useDispatch();
+  const history = useHistory();
   fetch("https://geolocation-db.com/json/8dd79c70-0801-11ec-a29f-e381a788c2c0")
     .then((response) => response.json())
     .then((data) => {
       console.log(data, data.city);
+      setCity(data.city)
     });
   const responseGoogle = (res) => {
     const data = { ...res.profileObj, events: {} };
-    console.log(data);
+    const payload = {
+      name: data.name,
+      imageUrl: data.imageUrl,
+      email: data.email,
+      location: city
+    }
+    dispatch(loginUser(payload));
     setTimeout(() => {
       if (data) {
         alert("You have successfully Logged In");
       }
     }, 1000);
+    history.push("/")
   };
   return (
     <>
