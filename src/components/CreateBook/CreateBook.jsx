@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./CreateBook.module.css";
-import Pincode from "react-pincode";
+import { Navbar } from "../LandingPage/navbar/navabar";
 import axios from "axios";
 
 const CreateBook = () => {
@@ -45,8 +45,11 @@ const CreateBook = () => {
   };
   return (
     <div className={styles.body}>
+      <Navbar />
       <div className={styles.mainDiv}>
-        <h2 style={{ textAlign: "center" }}>SELL/DONATE A BOOK</h2>
+        <h2 style={{ textAlign: "center", color: "#4004E7" }}>
+          SELL/DONATE A BOOK
+        </h2>
         <form action="">
           <div>
             <label htmlFor="title">Book Title</label>
