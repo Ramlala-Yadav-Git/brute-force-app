@@ -69,8 +69,7 @@ export const postBlogs = (payload) => (dispatch) => {
 	};
 	try {
 		dispatch(postRequest());
-		axios.post("http://localhost:2345/blogs", payload, config).then((res) => {
-			console.log(res.data);
+		axios.post("http://localhost:2345/books", payload, config).then((res) => {
 			dispatch(postSuccess());
 		});
 	} catch (e) {

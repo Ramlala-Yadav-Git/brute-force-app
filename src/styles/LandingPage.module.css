@@ -1,0 +1,33 @@
+.book_card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.book_card_cont {
+	display: flex;
+	border: 1px solid grey;
+	height: 130px;
+	width: 50%;
+	margin: 20px;
+	justify-content: space-between;
+	padding: 10px;
+	border-radius: 10px;
+}
+.book_card_cont_left {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	height: 100%;
+	position: relative;
+}
+.book_card_cont_left > span {
+	margin: 3px;
+}
+.book_card_cont_right > img {
+	height: 95%;
+}
+.book_card_cont_left_btn {
+	margin-top: 30px;
+	cursor: pointer;
+	color: blue;
+}
