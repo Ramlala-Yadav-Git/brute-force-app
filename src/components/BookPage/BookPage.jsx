@@ -1,16 +1,16 @@
 import React from 'react';
 import { Navbar } from '../LandingPage/navbar/navabar';
-import { ChatBox } from './ChatBox';
-import { ListingPageMain } from './ListingPageMain';
 import styles from "../../styles/LandingPage.module.css";
+import { BookMain } from './BookMain';
+import { Comments } from './Comments';
 
 
-export const ListingPage = () => {
+export const BookPage = () => {
   return <div>
     <Navbar />
     <div className={styles.listing_card}>
-    <ListingPageMain />
-    <ChatBox/>
+    <BookMain />
+    <Comments/>
     </div>
     </div>
 }
