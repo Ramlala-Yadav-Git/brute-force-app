@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./BookMain.module.css";
 import { convertDates } from "../../utils/convertDates";
-const book = {
+import { useParams } from "react-router-dom";
+import axios from "axios";
+const bok = {
   _id: "616118fa212087150436ea4d",
   title: "Intelligent Investor",
   type: "Rent",
@@ -25,7 +27,19 @@ const book = {
 };
 
 export const BookMain = () => {
+  const [book, setBook] = React.useState(bok);
+  const [load, setLoad] = React.useState(true);
+  const { id } = useParams();
+  React.useEffect(() => {
+    axios.get(`http://localhost:2345/books/${id}`).then(res => {
+      setBook(res.data.blog);
+      setLoad(false);
+    })
+  })
   const date = convertDates(book.createdAt);
+  if (load) {
+    return <div></div>
+  }
   return (
     <div className={styles.maindiv}>
       <div className={styles.div}>
@@ -54,9 +68,9 @@ export const BookMain = () => {
           </div>
           <div className={styles.last}>
             <h4>Condition:-{book.condition}</h4>
-            <h4>{book.type}</h4>
+            <h4>To:- {book.type}</h4>
             <h4>Price:-{book.price}</h4>
-            <button>Get Now</button>
+            {/* <button>Get Now</button> */}
           </div>
         </div>
       </div>
@@ -67,7 +81,7 @@ export const BookMain = () => {
       <div className={styles.description}>
         <h3>Seller's Info</h3>
         <div className={styles.seller}>
-          <img src={book.seller.image} alt="" />
+          <img src={book.seller.imageUrl} alt="" />
           <div>
             <h4>{book.seller.name}</h4>
             <p>{book.seller.email}</p>

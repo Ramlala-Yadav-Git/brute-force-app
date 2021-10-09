@@ -2,6 +2,8 @@ import React from 'react';
 import styled from "styled-components";
 import { BookCard } from './Books';
 import styles from "../../styles/LandingPage.module.css";
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 const Tabs = styled.span`
 text-transform: uppercase;
@@ -17,6 +19,33 @@ border-bottom:${props => (props.tab === props.val) ? "1px solid #292929" : "none
 `
 
 export const ListingPageMain = () => {
+  const user = useSelector(state => state.auth.user.user);
+  const [mybook,setmyBook] = React.useState([]);
+  const [local,setLocal] = React.useState([]);
+  const [global, setGlobal] = React.useState([]);
+  
+  React.useEffect(() => {
+    axios.post(`http://localhost:2345/mybook/${user._id}`).then((res) => {
+        setmyBook(res.data.data);
+      })
+      axios.post(`http://localhost:2345/globalbook/${user._id}`).then((res) => {
+        setGlobal(res.data.data);
+      })
+      axios.post(`http://localhost:2345/localbook/${user._id}`).then((res) => {
+        setLocal(res.data.data);
+      })
+    setInterval(() => {
+      axios.post(`http://localhost:2345/mybook/${user._id}`).then((res) => {
+        setmyBook(res.data.data);
+      })
+      axios.post(`http://localhost:2345/globalbook/${user._id}`).then((res) => {
+        setGlobal(res.data.data);
+      })
+      axios.post(`http://localhost:2345/localbook/${user._id}`).then((res) => {
+        setLocal(res.data.data);
+      })
+    },5000)
+  }, [user._id])
     const [tabs, setTabs] = React.useState(1);
     return <div className={styles.container_list}>
         <div className={styles.container_list_1}>
@@ -32,20 +61,20 @@ export const ListingPageMain = () => {
         </div>
         {tabs === 1 ? (
         <div >
-          {[1].map((item) => {
-            return <BookCard key={item._id} blog={item} />;
+          {local.map((item) => {
+            return <BookCard key={item._id} book={item} />;
           })}
         </div>
       ) : tabs===2 ?(
         <div >
-          {[1,5,3,3,3,3,3,3,3,3,3,3,3,3].map((item) => {
-            return <BookCard key={item._id} blog={item} />;
+          {global.map((item) => {
+            return <BookCard key={item._id} book={item} />;
           })}
         </div>
       ):(
         <div >
-          {[1,4].map((item) => {
-            return <BookCard key={item._id} blog={item} />;
+          {mybook.map((item) => {
+            return <BookCard key={item._id} book={item} />;
           })}
         </div>
       )}
