@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Login.module.css";
 import GoogleLogin from "react-google-login";
 import { Navbar } from "../LandingPage/navbar/navabar";
+import { Footer } from "../LandingPage/Footer/Footer"
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/auth/actions";
 import { useHistory } from "react-router";
@@ -19,10 +20,10 @@ const Login = () => {
   const responseGoogle = (res) => {
     const data = { ...res.profileObj, events: {} };
     const payload = {
-      name : data.name,
+      name: data.name,
       imageUrl: data.imageUrl,
       email: data.email,
-      location:city
+      location: city
     }
     dispatch(loginUser(payload));
     setTimeout(() => {
@@ -78,6 +79,10 @@ const Login = () => {
           </p>
         </div>
       </div>
+      <div style={{ margin: "50px" }}>
+
+      </div>
+      <Footer />
     </>
   );
 };

@@ -18,10 +18,10 @@ const CreateBook = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = new FormData()
-    data.append("location", location);
     data.append("title", title);
     data.append("type", type);
     data.append("description", description);
+    data.append("location", location);
     data.append("price", price);
     data.append("condition", condition)
     data.append("image", file)

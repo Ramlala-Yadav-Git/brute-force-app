@@ -69,7 +69,7 @@ padding-left:10px;
     color:white;
 }
 & > .endContent  .links {
-    color:#f09e06e4;
+    color: #fff;
     cursor:pointer;
     font-size:18px;
 }
