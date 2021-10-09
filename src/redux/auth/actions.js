@@ -55,10 +55,9 @@ export const loginUser = (payload) => (dispatch) => {
 	dispatch(loginRequest());
 	const pay = {
 		email: payload.email,
-		familyName: payload.familyName,
-		givenName: payload.givenName,
 		imageUrl: payload.imageUrl,
 		name: payload.name,
+		location: payload.location,
 	};
 	axios
 		.post("http://localhost:2345/users", pay)
@@ -76,34 +75,8 @@ export const logoutUser = (payload) => (dispatch) => {
 export const getBlogs = () => (dispatch) => {
 	try {
 		dispatch(getRequest());
-		axios.get("http://localhost:2345/blogs").then((res) => {
-			dispatch(getSuccess(res.data.blogs));
-		});
 		axios.get("http://localhost:2345/trending").then((res) => {
 			dispatch(getTrending(res.data.trending));
-		});
-		axios.get("http://localhost:2345/topics").then((res) => {
-			dispatch(getTopic(res.data.topics));
-		});
-	} catch (e) {
-		dispatch(getFailure());
-	}
-};
-
-export const allTopicBlogs = (payload) => (dispatch) => {
-	try {
-		dispatch(blogsRequest());
-		axios.post("http://localhost:2345/topicsblog", payload).then((res) => {
-			dispatch(blogsSuccess(res.data.data));
-		});
-	} catch (e) {
-		dispatch(blogsFailure());
-	}
-};
-export const refreshData = () => (dispatch) => {
-	try {
-		axios.get("http://localhost:2345/blogs").then((res) => {
-			dispatch(getSuccess(res.data.blogs));
 		});
 	} catch (e) {
 		dispatch(getFailure());
