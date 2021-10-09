@@ -10,33 +10,18 @@ export const LandingPage = () => {
     <LandingPageWrapper>
       <Navbar />
       <MiddleSection />
+      <div>
+
+        <img style={{ width: "50%", height: "350px", borderRadius: "5px" }} src="https://i.pinimg.com/originals/de/df/2a/dedf2a28629d3b144884a23c07238298.gif" alt="" />
+        <img style={{ width: "50%", height: "350px", borderRadius: "5px" }} src="https://lh3.googleusercontent.com/proxy/xWiohvz-a-j7QFFY56EkPIiekXPWwmvHVjLQ-Ubop-D1bhMSZpefKxYXLGcLxIVphTD3_JD7nCxL721zki2pm5Nv0nojJ7tIypsRGLkppT0Gu_4PUmSD" alt="" />
+      </div>
       <LowerSection />
-      {/* <img style={{ width: "50%", height: "300px" }} src="https://4.bp.blogspot.com/-qJx-nLmNwz4/VwiGNrFoB3I/AAAAAAAACMw/KM9sla3pAaImQIsBjnwl3ec7YGF77hCtg/s1600/HHH%2BBook%2BDay%2BBanner.jpg" alt="" /> */}
       <Footer />
     </LandingPageWrapper>
   );
 };
 
 const LandingPageWrapper = Styled.div`
-::-webkit-scrollbar {
-  width: 10px;
-}
 
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
-  border-radius: 10px;
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: red; 
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #b30000; 
-}
 
 `
