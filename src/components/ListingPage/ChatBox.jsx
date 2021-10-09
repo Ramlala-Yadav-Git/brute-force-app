@@ -19,7 +19,7 @@ export const ChatBox = () => {
     const user = useSelector((state) => state.auth.user.user); 
     const [text, setText] = React.useState("");
     const handleClick = () => {
-        if (text.length === 0) {
+        if (text.length === 0 || tabs) {
             return
         }
         axios.post(`http://localhost:2345/global`, { text:text,author:user._id });
@@ -38,7 +38,7 @@ export const ChatBox = () => {
             });
         }, 5000)
     },[]);
-    const [tabs, setTabs] = React.useState(true);
+    const [tabs, setTabs] = React.useState(false);
     console.log(chat)
 
     return <div className={styles.chat_box}>
