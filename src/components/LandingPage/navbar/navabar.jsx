@@ -9,13 +9,13 @@ export const Navbar = () => {
     return <>
         <NavbarWrapper>
             <div className="navLogo">
-                <Link to="/">
-                    {/* <img src="https://www.2masterit.com/img/Books_Academic.gif" alt="logo" /> */}
+                <Link to="/" className="link">
+
+                    <div>
+                        <h2>
+                            <span className="old"> O</span>ld<span className="book">B</span>ook.com</h2>
+                    </div>
                 </Link>
-                <div>
-                    <h2>
-                        <span className="old"> O</span>ld<span className="book">B</span>ook.com</h2>
-                </div>
             </div>
             <div className="endContent">
                 <div className="navInput">
@@ -55,7 +55,7 @@ align-items:center;
 background:#FFFFFF;
 padding:10px;
 color:##232F3E;
-border-bottom:1px solid #6f47dfab;
+border-bottom:1px solid #7b63bd21;
 
 .old{
     color:#e79804;
@@ -66,7 +66,10 @@ border-bottom:1px solid #6f47dfab;
     font-family:cursive;
 
 }
+.link{
+    text-decoration:none;
 
+}
 & >.navLogo {
     display:flex;
     justify-content:space-between;
@@ -74,6 +77,7 @@ border-bottom:1px solid #6f47dfab;
     gap:10px;
     border-radius:5px;
     padding:5px;
+    text-decoration:none;
 }
 & >.navLogo h2{
     color:#232F3E;
