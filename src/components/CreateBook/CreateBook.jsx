@@ -83,7 +83,7 @@ const CreateBook = () => {
                     id="type1"
                     value="Rent"
                   />
-                  <label htmlFor="type1">Rent</label>
+                  <label htmlFor="type1">Rent &nbsp;&nbsp;&nbsp;&nbsp;</label>
                   <input
                     onChange={handleChange}
                     type="radio"
@@ -91,7 +91,7 @@ const CreateBook = () => {
                     id="type2"
                     value="Sell"
                   />
-                  <label htmlFor="type2">Sell</label>
+                  <label htmlFor="type2">Sell &nbsp;&nbsp;&nbsp;&nbsp;</label>
                   <input
                     onChange={handleChange}
                     type="radio"
@@ -99,7 +99,7 @@ const CreateBook = () => {
                     id="type3"
                     value="Donate"
                   />
-                  <label htmlFor="type3">Donate</label>
+                  <label htmlFor="type3">Donate &nbsp;&nbsp;&nbsp;&nbsp;</label>
                 </div>
               </div>
               {showPrice ? (
@@ -124,7 +124,9 @@ const CreateBook = () => {
                   id="typec1"
                   value="Readable"
                 />
-                <label htmlFor="typec1">Readable</label>
+                <label htmlFor="typec1">
+                  Readable &nbsp;&nbsp;&nbsp;&nbsp;
+                </label>
                 <input
                   onChange={handleChange}
                   type="radio"
@@ -132,7 +134,7 @@ const CreateBook = () => {
                   id="typec2"
                   value="Good"
                 />
-                <label htmlFor="typec2">Good</label>
+                <label htmlFor="typec2">Good &nbsp;&nbsp;&nbsp;&nbsp;</label>
                 <input
                   onChange={handleChange}
                   type="radio"
@@ -140,25 +142,28 @@ const CreateBook = () => {
                   id="typec3"
                   value="Best"
                 />
-                <label htmlFor="typec3">Best</label>
+                <label htmlFor="typec3">Best &nbsp;&nbsp;&nbsp;&nbsp;</label>
               </div>
             </div>
+          </div>
+          <div className={styles.two}>
+            <div>
+              <label htmlFor="location">Pincode</label>
+              <input
+                onChange={handleChange}
+                type="number"
+                name="pincode"
+                id="location"
+                placeholder="Enter Pincode"
+              />
+            </div>
+
             <div>
               <p>Choose Image</p>
               <div>
                 <input type="file" name="image" id="" />
               </div>
             </div>
-          </div>
-          <div>
-            <label htmlFor="location">Pincode</label>
-            <input
-              onChange={handleChange}
-              type="number"
-              name="pincode"
-              id="location"
-              placeholder="Enter Pincode"
-            />
           </div>
           {pinlocation.find ? (
             <div className={styles.location}>
