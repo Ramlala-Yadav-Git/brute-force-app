@@ -60,9 +60,10 @@ export const loginUser = (payload) => (dispatch) => {
 		location: payload.location,
 	};
 	axios
-		.post("http://localhost:2345/users", pay)
+		.post("https://oldbook-brute-force.herokuapp.com/users", pay)
 		.then((res) => {
 			dispatch(loginSuccess(res.data));
+			console.log(res.data);
 		})
 		.catch((err) => {
 			dispatch(loginFailure(err.message));
