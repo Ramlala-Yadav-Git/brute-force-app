@@ -24,7 +24,7 @@ export function Routes() {
         <Route path="/list">
           <ListingPage />
         </Route>
-        <Route path="/book">
+        <Route path="/book/:id">
           <BookPage />
         </Route>
         <Route path="/search">
