@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./CreateBook.module.css";
 import { Navbar } from "../LandingPage/navbar/navabar";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const CreateBook = () => {
   const [pinlocation, setpinlocation] = useState({ find: false });
@@ -9,12 +10,46 @@ const CreateBook = () => {
   const [type, setType] = useState("");
   const [file, setFile] = useState("");
   const [description, setDescription] = useState("");
-  const [price, setTopic] = useState(0);
+  const [price, setPrice] = useState(0);
   const [condition, setCondition] = useState("");
   const [location, setLocation] = useState("");
   const [author, setAuthor] = useState("");
-
-
+  const user = useSelector((state) => state.auth.user.user);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData()
+    data.append("location", location);
+    data.append("title", title);
+    data.append("type", type);
+    data.append("description", description);
+    data.append("price", price);
+    data.append("condition", condition)
+    data.append("image", file)
+    data.append("author", author);
+    data.append("seller", user._id);
+    const payload= {
+      title,
+      type,
+      description,
+      price,
+      condition,
+      file,
+      location:location||user.location,
+      author,
+      seller:user._id
+    }
+    console.log(payload);
+    const config = {
+		headers: { "Content-Type": "multipart/form-data" },
+	};
+	try {
+		axios.post("http://localhost:2345/books",data, config).then((res) => {
+			console.log(res.data);
+		});
+	} catch (e) {
+		console.log(e)
+	}
+  }
   const getDetails = (pin) => {
     let location = {};
     axios
@@ -43,13 +78,19 @@ const CreateBook = () => {
         setpinlocation({});
       }
     }
+    if (e.target.name === "condition") {
+      setCondition(e.target.value)
+    }
     if (
       e.target.name === "type" &&
       (e.target.value === "Rent" || e.target.value === "Sell")
     ) {
+      setType(e.target.value);
       setShowPrice(true);
     } else if (e.target.name === "type" && e.target.value === "Donate") {
+      setType(e.target.value);
       setShowPrice(false);
+      setPrice(0);
     }
   };
   return (
@@ -119,7 +160,9 @@ const CreateBook = () => {
                   <input
                     type="number"
                     name="price"
+                    onChange={(e)=>{setPrice(Number(e.target.value))}}
                     id="price"
+                    value={price}
                     placeholder="Enter Price Of The Book"
                   />
                 </div>
@@ -172,7 +215,9 @@ const CreateBook = () => {
             <div>
               <p>Choose Image</p>
               <div>
-                <input type="file" name="image" id="" />
+                <input type="file"
+                onChange={(event) => setFile(event.target.files[0])}
+                accept="png jpg jpeg" name="image" id="" />
               </div>
             </div>
           </div>
@@ -204,7 +249,7 @@ const CreateBook = () => {
                 <label htmlFor="city">City</label>
                 <input
                   value={pinlocation.city}
-                  onChange={handleChange}
+                  onChange={(e)=>{setLocation(e.target.value)}}
                   type="text"
                   name="city"
                   id="city"
@@ -215,10 +260,10 @@ const CreateBook = () => {
           ) : null}
           <div>
             <label htmlFor="author">Description</label>
-            <textarea name="description" id="" cols="30" rows="5"></textarea>
+            <textarea onChange={(e)=>{setDescription(e.target.value)}} name="description" id="" cols="30" rows="5"></textarea>
           </div>
           <div className={styles.submit}>
-            <input type="submit" value="CREATE" />
+            <input onClick={handleSubmit} type="submit" value="CREATE" />
           </div>
         </form>
       </div>
@@ -227,10 +272,3 @@ const CreateBook = () => {
 };
 
 export default CreateBook;
-// const data = new FormData()
-//     data.append("image", file)
-//     data.append("text", body);
-//     data.append("title", title);
-//     data.append("description", description);
-//     data.append("author", user._id);
-//     data.append("topic", topic);
