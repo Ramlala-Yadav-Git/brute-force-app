@@ -3,6 +3,7 @@ import {Switch,Route} from "react-router-dom"
 import { BookPage } from "../components/BookPage/BookPage";
 import { LandingPage } from "../components/LandingPage/LandingPage";
 import { ListingPage } from "../components/ListingPage/ListingPage";
+import Login from "../components/Login/Login";
 
 export default function Routes() {
   return (
@@ -16,6 +17,9 @@ export default function Routes() {
         </Route>
         <Route path="/book">
           <BookPage />
+        </Route>
+        <Route path="/login">
+          <Login/>
         </Route>
       </Switch>
     </>
