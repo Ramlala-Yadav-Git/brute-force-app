@@ -19,7 +19,6 @@ export const Comments = () => {
             });  
         },5000)
     },[id,user._id])
-
     console.log(chat);
     const handleClick = () => {
         if (text.length === 0) {
@@ -41,7 +40,12 @@ export const Comments = () => {
             <div className={styles.chat_box_3}>
                 {
                     chat.map(item => {
-                        return <div>{item.text}</div>
+                        return <div>
+                            {user._id === item.author._id ? <div className={styles.right_chat}>{item.text}</div> : <div className={styles.left_chat}>
+                                <div><strong>{item.author.name}</strong></div>
+                                <div>{item.text}</div>
+                            </div>}
+                        </div>
                     })
                 }
             </div>
