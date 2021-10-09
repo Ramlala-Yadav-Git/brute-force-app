@@ -6,7 +6,7 @@ const book = {
   title: "Intelligent Investor",
   type: "Rent",
   description:
-    "good conditiongood conditiongood conditiongood conditiongood conditiongood conditiongood conditiongood conditiongood conditiongood condition",
+    "good conditiongood conditiongood conditiongood conditiongood good conditiongood conditiongood conditiongood conditiongood good conditiongood conditiongood conditiongood conditiongood good conditiongood conditiongood conditiongood conditiongood good conditiongood conditiongood conditiongood conditiongood conditiongood conditiongood conditiongood conditiongood conditiongood condition",
   featureImg:
     "http://res.cloudinary.com/someshcloudinary/image/upload/v1633753335/ozcucn74hytplatvbsef.jpg",
   price: 10,
@@ -56,11 +56,14 @@ export const BookMain = () => {
             <h4>Condition:-{book.condition}</h4>
             <h4>{book.type}</h4>
             <h4>Price:-{book.price}</h4>
-            <button>Buy Now</button>
+            <button>Get Now</button>
           </div>
         </div>
       </div>
-
+      <div className={styles.description}>
+        <h3>Book Description</h3>
+        <p>{book.description}</p>
+      </div>
       <div className={styles.description}>
         <h3>Seller's Info</h3>
         <div className={styles.seller}>
@@ -70,10 +73,6 @@ export const BookMain = () => {
             <p>{book.seller.email}</p>
           </div>
         </div>
-      </div>
-      <div className={styles.description}>
-        <h3>Book Description</h3>
-        <p>{book.description}</p>
       </div>
     </div>
     // <div className={styles.container_list}>

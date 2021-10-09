@@ -1,7 +1,7 @@
 .body {
   width: 100%;
   height: 100vh;
-  background-color: #813316;
+  background-color: #dfb260;
 }
 .mainDiv {
   width: 50%;
@@ -12,6 +12,10 @@
   padding-left: 50px;
   padding-right: 50px;
   background-color: white;
+  top: 110px;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 5px;
 }
 input[type="text"],
 input[type="number"] {
@@ -24,7 +28,8 @@ input[type="number"] {
 }
 input[type="radio"] {
   margin-bottom: 20px;
-  margin-top: -100px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 .two {
   display: grid;
@@ -41,6 +46,12 @@ input[type="submit"] {
   width: 100%;
   height: 35px;
   text-align: center;
+  background-color: #4004e7;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 5px;
 }
 textarea {
   border: 2px solid gray;
