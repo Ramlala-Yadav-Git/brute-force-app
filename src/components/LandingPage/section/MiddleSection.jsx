@@ -1,7 +1,11 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import { useHistory } from "react-router";
 export const MiddleSection = () => {
 
-
+    const history = useHistory()
+    const handleClick = () => {
+        history.push("/create")
+    }
 
     return <MiddleSectionWrapper>
         <div>
@@ -10,7 +14,7 @@ export const MiddleSection = () => {
             </div>
             <div className="buttons">
 
-                <button>Click here</button>
+                <button onClick={handleClick}>Click here</button>
 
             </div>
         </div>
