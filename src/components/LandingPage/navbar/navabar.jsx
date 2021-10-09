@@ -1,9 +1,23 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import Styled from "styled-components"
+import { useHistory } from "react-router"
 
 export const Navbar = () => {
 
+    const [input, setInput] = useState("")
+    const history = useHistory("")
 
+    const handleChange = (e) => {
+        if (e.charCode === 13) {
+            history.push(`/search/${input}`)
+            setInput("")
+
+
+        }
+
+        // console.log(e.charCode)
+    }
 
 
     return <>
@@ -19,7 +33,7 @@ export const Navbar = () => {
             </div>
             <div className="endContent">
                 <div className="navInput">
-                    <input type="text" name="search" id="search" placeholder="Search Books By author.." />
+                    <input type="text" name="search" id="search" placeholder="Search Books By author.." onChange={(e) => setInput(e.target.value)} onKeyPress={handleChange} value={input} />
                 </div>
                 <div className="navLinks">
                     <Link to="/list" className="link">
