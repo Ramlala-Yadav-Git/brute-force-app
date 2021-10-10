@@ -29,6 +29,7 @@ export const authReducer = (state = initState, { type, payload }) => {
 				isError: false,
 			};
 		case LOGIN_SUCCESS:
+			console.log(payload, "fnkalsn")
 			saveData("user", payload);
 			saveData("isAuth", "true");
 			return {
