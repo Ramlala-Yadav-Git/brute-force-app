@@ -14,7 +14,7 @@ export const BookCard = ({ book }) => {
     <div className={styles.book_card}>
       <div className={styles.book_card_cont}>
         <div className={styles.book_card_cont_right}>
-          <img src={book.featureImg} alt="" />
+          <img style={{cursor:"pointer"}} onClick={() => { handlePage(book._id) }} src={book.featureImg} alt="" />
         </div>
         <div className={styles.book_card_cont_left}>
           <span>Book Name - <strong>{book.title}</strong></span>
