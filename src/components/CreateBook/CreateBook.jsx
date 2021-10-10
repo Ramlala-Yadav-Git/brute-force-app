@@ -4,6 +4,7 @@ import { Navbar } from "../LandingPage/navbar/navabar";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Footer } from "../LandingPage/Footer/Footer"
+import { useHistory } from "react-router";
 
 const CreateBook = () => {
   const [pinlocation, setpinlocation] = useState({ find: false });
@@ -16,6 +17,7 @@ const CreateBook = () => {
   const [location, setLocation] = useState("");
   const [author, setAuthor] = useState("");
   const user = useSelector((state) => state.auth.user.user);
+  const history = useHistory()
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = new FormData()
@@ -39,13 +41,15 @@ const CreateBook = () => {
       author,
       seller: user._id
     }
-    console.log(payload);
     const config = {
       headers: { "Content-Type": "multipart/form-data" },
     };
     try {
       axios.post("http://localhost:2345/books", data, config).then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
+        alert("Your request has been successfully accepted")
+        history.push("/list")
+
       });
     } catch (e) {
       console.log(e)
