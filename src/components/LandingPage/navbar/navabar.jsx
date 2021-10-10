@@ -104,6 +104,7 @@ border-bottom:1px solid #7b63bd21;
     gap:10px;
     border-radius:5px;
     padding:5px;
+    padding-left:50px;
     text-decoration:none;
 }
 & >.navLogo h2{
