@@ -60,8 +60,10 @@ export const loginUser = (payload) => (dispatch) => {
 		location: payload.location,
 	};
 	axios
+
 		.post("http://localhost:2345/users", pay)
 		.then((res) => {
+			console.log(pay)
 			dispatch(loginSuccess(res.data));
 			console.log(res.data);
 		})
