@@ -29,9 +29,9 @@ const Login = () => {
     setTimeout(() => {
       if (data) {
         alert("You have successfully Logged In");
+        history.push("/")
       }
-    }, 1000);
-    history.push("/")
+    }, 5000);
   };
   return (
     <>
