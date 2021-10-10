@@ -31,7 +31,7 @@ const Login = () => {
         alert("You have successfully Logged In");
         history.push("/")
       }
-    }, 5000);
+    }, 8000);
   };
   return (
     <>
