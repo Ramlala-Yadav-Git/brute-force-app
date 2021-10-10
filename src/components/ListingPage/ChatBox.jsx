@@ -75,10 +75,16 @@ export const ChatBox = () => {
         <div className={styles.chat_box_2}>
           {" "}
           <Tabs onClick={() => setTabs(false)} tab={tabs} val={false}>
-            Global
+            <h5 style={{ fontSize: "14px" }}>
+
+              Global
+            </h5>
           </Tabs>
           <Tabs onClick={() => setTabs(true)} tab={tabs} val={true}>
-            Local
+            <h5 style={{ fontSize: "14px" }}>
+
+              Local
+            </h5>
           </Tabs>
         </div>
         <div className={styles.chatboxcss}>

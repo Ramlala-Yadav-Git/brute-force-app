@@ -31,7 +31,7 @@ const Search = () => {
             padding: "15px",
           }}
         >
-          <p style={{ textAlign: "center" }}>Your Search Keyword total Results are {books.length}</p>
+          <p style={{ marginLeft: "33%" }}>Your Search Keyword total Results are {books.length}</p>
         </div>
         <div className={styles.listing_card}>
           <SearchResultWrapper>
