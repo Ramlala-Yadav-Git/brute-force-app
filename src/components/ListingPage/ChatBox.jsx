@@ -16,30 +16,43 @@ border-bottom:${props => (props.tab === props.val) ? "1px solid #292929" : "none
 
 export const ChatBox = () => {
      const [chat, setChat] = React.useState([]);
+     const [chatLocal, setChatLocal] = React.useState([]);
     const user = useSelector((state) => state.auth.user.user); 
     const [text, setText] = React.useState("");
     const handleClick = () => {
-        if (text.length === 0 || tabs) {
+        if (text.length === 0) {
             return
         }
-        axios.post(`http://localhost:2345/global`, { text:text,author:user._id });
-        axios.get(`http://localhost:2345/global`).then(res => {
+        if (!tabs) {    
+            axios.post(`http://localhost:2345/global`, { text:text,author:user._id });
+            axios.get(`http://localhost:2345/global`).then(res => {
                 setChat(res.data.data);
             }); 
+        } else {
+             axios.post(`http://localhost:2345/local`, { location:user.location,text:text,author:user._id });
+            axios.get(`http://localhost:2345/local/comments/${user._id}`).then(res => {
+                setChatLocal(res.data.data);
+            }); 
+        }
         setText("");
     }
     React.useEffect(() => {
         axios.get(`http://localhost:2345/global`).then(res => {
             setChat(res.data.data);
         });
+        axios.get(`http://localhost:2345/local/comments/${user._id}`).then(res => {
+                setChatLocal(res.data.data);
+            });
         setInterval(() => {
             axios.get(`http://localhost:2345/global`).then(res => {
                 setChat(res.data.data);
             });
+            axios.get(`http://localhost:2345/local/comments/${user._id}`).then(res => {
+                setChatLocal(res.data.data);
+            });
         }, 5000)
-    },[]);
+    },[user._id]);
     const [tabs, setTabs] = React.useState(false);
-    console.log(chat)
 
     return <div className={styles.chat_box}>
         <div>
@@ -51,6 +64,14 @@ export const ChatBox = () => {
         </Tabs></div>
             <div className={styles.chat_box_3}>
                 {!tabs && chat.map(item => {
+                        return <div>
+                            {user._id === item.author._id ? <div className={styles.right_chat}>{item.text}</div> : <div className={styles.left_chat}>
+                                <div><strong>{item.author.name}</strong></div>
+                                <div>{item.text}</div>
+                            </div>}
+                        </div>
+                    })}
+                {tabs && chatLocal.map(item => {
                         return <div>
                             {user._id === item.author._id ? <div className={styles.right_chat}>{item.text}</div> : <div className={styles.left_chat}>
                                 <div><strong>{item.author.name}</strong></div>
