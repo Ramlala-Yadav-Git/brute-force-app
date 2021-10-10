@@ -1,77 +1,79 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
-import Styled from "styled-components"
-import { useHistory } from "react-router"
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import Styled from "styled-components";
+import { useHistory } from "react-router";
 import { useSelector } from "react-redux";
 
-
 export const Navbar = () => {
+  const [input, setInput] = useState("");
+  const history = useHistory("");
+  const user = useSelector((state) => state.auth.user.user);
 
-    const [input, setInput] = useState("")
-    const history = useHistory("")
-    const user = useSelector((state) => state.auth.user.user);
-
-
-    const handleChange = (e) => {
-        if (e.charCode === 13) {
-            history.push(`/search/${input}`)
-            setInput("")
-
-
-        }
-
-        // console.log(e.charCode)
+  const handleChange = (e) => {
+    if (e.charCode === 13) {
+      history.push(`/search/${input}`);
+      setInput("");
     }
-    const sample = "https://thumbs.dreamstime.com/b/faceless-businessman-avatar-man-suit-blue-tie-human-profile-userpic-face-features-web-picture-gentlemen-85824471.jpg"
-    // console.log(user)
 
+    // console.log(e.charCode)
+  };
+  const sample =
+    "https://thumbs.dreamstime.com/b/faceless-businessman-avatar-man-suit-blue-tie-human-profile-userpic-face-features-web-picture-gentlemen-85824471.jpg";
+  // console.log(user)
 
-    return <>
-        <NavbarWrapper>
-            <div className="navLogo">
-                <Link to="/" className="link">
-
-                    <div>
-                        <h2>
-                            <span className="old"> O</span>ld<span className="book">B</span>ook.com</h2>
-                    </div>
-                </Link>
+  return (
+    <>
+      <NavbarWrapper>
+        <div className="navLogo">
+          <Link to="/" className="link">
+            <div>
+              <h2>
+                <span className="old"> O</span>ld<span className="book">B</span>
+                ook.com
+              </h2>
             </div>
-            <div className="endContent">
-                <div className="navInput">
-                    <input type="text" name="search" id="search" placeholder="Search Books By author.." onChange={(e) => setInput(e.target.value)} onKeyPress={handleChange} value={input} />
-                </div>
-                <div className="navLinks">
-                    <Link to="/list" className="link">
-
-                        <h5>All Books</h5>
-                    </Link>
-                </div>
-                <div className="navLinks" >
-                    <Link to="create" className="link">
-                        <h5>Sell</h5>
-                    </Link>
-
-                </div>
-                <div className="navLinks">
-                    {/* <Link to="/chat">
+          </Link>
+        </div>
+        <div className="endContent">
+          <div className="navInput">
+            <input
+              type="text"
+              name="search"
+              id="search"
+              placeholder="Search Books By author.."
+              onChange={(e) => setInput(e.target.value)}
+              onKeyPress={handleChange}
+              value={input}
+            />
+          </div>
+          <div className="navLinks">
+            <Link to="/list" className="link">
+              <h5>All Books</h5>
+            </Link>
+          </div>
+          <div className="navLinks">
+            <Link to="create" className="link">
+              <h5>Sell</h5>
+            </Link>
+          </div>
+          <div className="navLinks">
+            {/* <Link to="/chat">
                         <i className="far fa-comment-dots"></i>
                     </Link> */}
-                </div>
-                <div className="navLinks">
-                    {/* <Link to="/video">
+          </div>
+          <div className="navLinks">
+            {/* <Link to="/video">
                         <i className="fas fa-video"></i>
                     </Link> */}
-                </div>
-                <div className="userPic">
-                    <img src={user.imageUrl ? user.imageUrl : sample} alt="pic" />
-                </div>
-
-            </div>
-
-        </NavbarWrapper>
+          </div>
+          <div className="userPic">
+            <img src={user ? user.imageUrl : sample} alt="pic" />
+          </div>
+        </div>
+      </NavbarWrapper>
     </>
-}
+  );
+};
 
 const NavbarWrapper = Styled.div`
 display:flex;
@@ -160,4 +162,4 @@ border-bottom:1px solid #7b63bd21;
     border-radius:50%;
 }
 
-`
+`;
