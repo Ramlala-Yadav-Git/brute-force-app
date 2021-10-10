@@ -137,12 +137,16 @@
   margin-left: 55px;
   display: grid;
   grid-template-columns: auto 35px;
+  flex-direction: column-reverse;
   grid-gap: 10px;
-  /* border: 1px solid gray; */
+  background-color: white;
+  height: auto;
+  overflow: auto;
+  border: 1px solid gray;
 }
 .containerleft {
   margin-right: 55px;
-  /* border: 1px solid gray; */
+  border: 1px solid gray;
   background-color: rgb(219, 216, 216);
   display: grid;
   grid-template-columns: 35px auto;
@@ -153,9 +157,13 @@
   padding: 5px;
   margin-top: 15px;
   height: 400px;
+  background-color: honeydew;
   overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
   border-radius: 10px;
 }
 .p1 {
-  width: 320px;
+  margin-top: 5px;
+  word-break: break-all;
 }

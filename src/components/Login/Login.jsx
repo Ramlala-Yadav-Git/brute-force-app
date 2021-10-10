@@ -11,14 +11,17 @@ const Login = () => {
   const [city, setCity] = React.useState("");
   const dispatch = useDispatch();
   const history = useHistory();
+  const user = useSelector(state => state.auth.user.user)
+  console.log(user)
   fetch("https://geolocation-db.com/json/8dd79c70-0801-11ec-a29f-e381a788c2c0")
     .then((response) => response.json())
     .then((data) => {
-      console.log(data, data.city);
+      // console.log(data, data.city);
       setCity(data.city)
     });
   const responseGoogle = (res) => {
     const data = { ...res.profileObj, events: {} };
+    // console.log(res, "gfdslgndslkg")
     const payload = {
       name: data.name,
       imageUrl: data.imageUrl,
@@ -27,11 +30,11 @@ const Login = () => {
     }
     dispatch(loginUser(payload));
     setTimeout(() => {
-      if (data) {
+      if (user) {
         alert("You have successfully Logged In");
+        history.push("/")
       }
-    }, 1000);
-    history.push("/")
+    }, 8000);
   };
   return (
     <>

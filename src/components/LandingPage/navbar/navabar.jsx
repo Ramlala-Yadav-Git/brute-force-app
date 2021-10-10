@@ -65,12 +65,14 @@ export const Navbar = () => {
             {/* <Link to="/video">
                         <i className="fas fa-video"></i>
                     </Link> */}
-          </div>
-          <div className="userPic">
-            <img src={user ? user.imageUrl : sample} alt="pic" />
-          </div>
-        </div>
-      </NavbarWrapper>
+                </div>
+                <div className="userPic">
+                    <img src={user ? user.imageUrl : sample} alt="pic" />
+                </div>
+
+            </div>
+
+        </NavbarWrapper>
     </>
   );
 };
