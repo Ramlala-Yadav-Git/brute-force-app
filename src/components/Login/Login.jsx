@@ -30,11 +30,11 @@ const Login = () => {
     }
     dispatch(loginUser(payload));
     setTimeout(() => {
-      if (user) {
+      if (data) {
         alert("You have successfully Logged In");
-        history.push("/")
       }
-    }, 8000);
+    }, 2000);
+    history.push("/")
   };
   return (
     <>
