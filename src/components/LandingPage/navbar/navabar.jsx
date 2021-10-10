@@ -64,7 +64,7 @@ export const Navbar = () => {
                     </Link> */}
                 </div>
                 <div className="userPic">
-                    <img src={user.imageUrl ? user.imageUrl : sample} alt="pic" />
+                    <img src={user ? user.imageUrl : sample} alt="pic" />
                 </div>
 
             </div>
