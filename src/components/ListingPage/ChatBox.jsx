@@ -26,21 +26,21 @@ export const ChatBox = () => {
       return;
     }
     if (!tabs) {
-      axios.post(`http://localhost:2345/global`, {
+      axios.post(`https://oldbook-brute-force.herokuapp.com/global`, {
         text: text,
         author: user._id,
       });
-      axios.get(`http://localhost:2345/global`).then((res) => {
+      axios.get(`https://oldbook-brute-force.herokuapp.com/global`).then((res) => {
         setChat(res.data.data);
       });
     } else {
-      axios.post(`http://localhost:2345/local`, {
+      axios.post(`https://oldbook-brute-force.herokuapp.com/local`, {
         location: user.location,
         text: text,
         author: user._id,
       });
       axios
-        .get(`http://localhost:2345/local/comments/${user._id}`)
+        .get(`https://oldbook-brute-force.herokuapp.com/local/comments/${user._id}`)
         .then((res) => {
           setChatLocal(res.data.data);
         });
@@ -48,20 +48,20 @@ export const ChatBox = () => {
     setText("");
   };
   React.useEffect(() => {
-    axios.get(`http://localhost:2345/global`).then((res) => {
+    axios.get(`https://oldbook-brute-force.herokuapp.com/global`).then((res) => {
       setChat(res.data.data);
     });
     axios
-      .get(`http://localhost:2345/local/comments/${user._id}`)
+      .get(`https://oldbook-brute-force.herokuapp.com/local/comments/${user._id}`)
       .then((res) => {
         setChatLocal(res.data.data);
       });
     setInterval(() => {
-      axios.get(`http://localhost:2345/global`).then((res) => {
+      axios.get(`https://oldbook-brute-force.herokuapp.com/global`).then((res) => {
         setChat(res.data.data);
       });
       axios
-        .get(`http://localhost:2345/local/comments/${user._id}`)
+        .get(`https://oldbook-brute-force.herokuapp.com/local/comments/${user._id}`)
         .then((res) => {
           setChatLocal(res.data.data);
         });
