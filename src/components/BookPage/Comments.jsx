@@ -10,11 +10,11 @@ export const Comments = () => {
   const user = useSelector((state) => state.auth.user.user);
   const [text, setText] = React.useState("");
   React.useEffect(() => {
-    axios.post(`http://localhost:2345/${user._id}/book/${id}`).then((res) => {
+    axios.post(`https://oldbook-brute-force.herokuapp.com/${user._id}/book/${id}`).then((res) => {
       setChat(res.data.data);
     });
     setInterval(() => {
-      axios.post(`http://localhost:2345/${user._id}/book/${id}`).then((res) => {
+      axios.post(`https://oldbook-brute-force.herokuapp.com/${user._id}/book/${id}`).then((res) => {
         setChat(res.data.data);
       });
     }, 5000);
@@ -24,8 +24,8 @@ export const Comments = () => {
     if (text.length === 0) {
       return;
     }
-    axios.patch(`http://localhost:2345/${user._id}/book/${id}`, { text });
-    axios.post(`http://localhost:2345/${user._id}/book/${id}`).then((res) => {
+    axios.patch(`https://oldbook-brute-force.herokuapp.com/${user._id}/book/${id}`, { text });
+    axios.post(`https://oldbook-brute-force.herokuapp.com/${user._id}/book/${id}`).then((res) => {
       setChat(res.data.data);
     });
     setText("");
