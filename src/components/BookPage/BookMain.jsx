@@ -31,7 +31,7 @@ export const BookMain = () => {
   const [load, setLoad] = React.useState(true);
   const { id } = useParams();
   React.useEffect(() => {
-    axios.get(`http://localhost:2345/books/${id}`).then(res => {
+    axios.get(`https://oldbook-brute-force.herokuapp.com/books/${id}`).then(res => {
       setBook(res.data.blog);
       setLoad(false);
     })
