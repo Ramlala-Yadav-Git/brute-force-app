@@ -61,7 +61,7 @@ export const loginUser = (payload) => (dispatch) => {
 	};
 	axios
 
-		.post("http://localhost:2345/users", pay)
+		.post("https://oldbook-brute-force.herokuapp.com/users", pay)
 		.then((res) => {
 			console.log(pay)
 			dispatch(loginSuccess(res.data));
@@ -78,7 +78,7 @@ export const logoutUser = (payload) => (dispatch) => {
 export const getBlogs = () => (dispatch) => {
 	try {
 		dispatch(getRequest());
-		axios.get("http://localhost:2345/trending").then((res) => {
+		axios.get("https://oldbook-brute-force.herokuapp.com/trending").then((res) => {
 			dispatch(getTrending(res.data.trending));
 		});
 	} catch (e) {
