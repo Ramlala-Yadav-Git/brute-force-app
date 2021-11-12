@@ -15,7 +15,7 @@ const Search = () => {
   const [books, setBooks] = useState([])
   React.useEffect(() => {
 
-    axios.get(`http://localhost:2345/${user._id}/result/${query}`).then(res => {
+    axios.get(`https://oldbook-brute-force.herokuapp.com/${user._id}/result/${query}`).then(res => {
       setBooks(res.data.data);
     });
 
