@@ -47,16 +47,16 @@ export const getUserData = (payload) => (dispatch) => {
 	try {
 		dispatch(getRequest());
 		console.log(payload);
-		axios.get(`http://localhost:2345/${payload}/topics`).then((res) => {
+		axios.get(`https://oldbook-brute-force.herokuapp.com/${payload}/topics`).then((res) => {
 			dispatch(getFollowingTopic(res.data.topics));
 		});
-		axios.get(`http://localhost:2345/${payload}/nottopics`).then((res) => {
+		axios.get(`https://oldbook-brute-force.herokuapp.com/${payload}/nottopics`).then((res) => {
 			dispatch(getTopic(res.data.data));
 		});
-		axios.get(`http://localhost:2345/${payload}/notfollow`).then((res) => {
+		axios.get(`https://oldbook-brute-force.herokuapp.com/${payload}/notfollow`).then((res) => {
 			dispatch(getPeople(res.data.data));
 		});
-		axios.get(`http://localhost:2345/${payload}/followingblogs`).then((res) => {
+		axios.get(`https://oldbook-brute-force.herokuapp.com/${payload}/followingblogs`).then((res) => {
 			dispatch(getSuccess(res.data.data));
 		});
 	} catch (e) {
@@ -69,7 +69,7 @@ export const postBlogs = (payload) => (dispatch) => {
 	};
 	try {
 		dispatch(postRequest());
-		axios.post("http://localhost:2345/books", payload, config).then((res) => {
+		axios.post("https://oldbook-brute-force.herokuapp.com/books", payload, config).then((res) => {
 			dispatch(postSuccess());
 		});
 	} catch (e) {
