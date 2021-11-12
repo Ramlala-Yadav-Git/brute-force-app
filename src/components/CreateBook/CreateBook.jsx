@@ -45,7 +45,7 @@ const CreateBook = () => {
       headers: { "Content-Type": "multipart/form-data" },
     };
     try {
-      axios.post("http://localhost:2345/books", data, config).then((res) => {
+      axios.post("https://oldbook-brute-force.herokuapp.com/books", data, config).then((res) => {
         // console.log(res.data);
         alert("Your request has been successfully accepted")
         history.push("/list")
