@@ -27,23 +27,23 @@ export const ListingPageMain = () => {
   const [global, setGlobal] = React.useState([]);
 
   React.useEffect(() => {
-    axios.post(`http://localhost:2345/mybook/${user._id}`).then((res) => {
+    axios.post(`https://oldbook-brute-force.herokuapp.com/mybook/${user._id}`).then((res) => {
       setmyBook(res.data.data);
     })
-    axios.post(`http://localhost:2345/globalbook/${user._id}`).then((res) => {
+    axios.post(`https://oldbook-brute-force.herokuapp.com/globalbook/${user._id}`).then((res) => {
       setGlobal(res.data.data);
     })
-    axios.post(`http://localhost:2345/localbook/${user._id}`).then((res) => {
+    axios.post(`https://oldbook-brute-force.herokuapp.com/localbook/${user._id}`).then((res) => {
       setLocal(res.data.data);
     })
     setInterval(() => {
-      axios.post(`http://localhost:2345/mybook/${user._id}`).then((res) => {
+      axios.post(`https://oldbook-brute-force.herokuapp.com/mybook/${user._id}`).then((res) => {
         setmyBook(res.data.data);
       })
-      axios.post(`http://localhost:2345/globalbook/${user._id}`).then((res) => {
+      axios.post(`https://oldbook-brute-force.herokuapp.com/globalbook/${user._id}`).then((res) => {
         setGlobal(res.data.data);
       })
-      axios.post(`http://localhost:2345/localbook/${user._id}`).then((res) => {
+      axios.post(`https://oldbook-brute-force.herokuapp.com/localbook/${user._id}`).then((res) => {
         setLocal(res.data.data);
       })
     }, 5000)
